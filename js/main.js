@@ -54,7 +54,7 @@ function selccionEntrada() {
   if (entradas == 1) {
     alert("Bien, agregaste unos Camarones a tu pedido");
   } else if (entradas == 2) {
-    alert("Bien, agregaste un Arroz con palta y sesamos a tu pedido");
+    alert("Bien, agregaste un Arroz con palta y sesamo a tu pedido");
   } else if (entradas == 3) {
     alert("Bien, agregaste un salmon tu pedido");
   } else if (entradas == 4) {
@@ -140,14 +140,14 @@ cantidades2();
 
 function agregarMas2() {
   agregar = prompt(
-    "¿Queres agregar otra entrada al pedido?, responde con si o no"
+    "¿Queres agregar otro plato al pedido?, responde con si o no"
   );
   while (agregar == "si") {
     menuPlatos();
     selccionEntrada2();
     cantidades2();
     agregar = prompt(
-      "¿Queres agregar otra entrada al pedido?, responde con si o no")
+      "¿Queres agregar otr plato al pedido?, responde con si o no")
   }
   if (agregar != "si");
   {
