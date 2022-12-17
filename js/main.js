@@ -1,3 +1,4 @@
+let carrito = [];
 let ingreso = prompt("Bienvenido a Asiatic Food, ingresá tu nombre");
 
 //Funcion de ingreso de usuario
@@ -29,11 +30,11 @@ function edad() {
 }
 edad();
 
-alert(
-  "En el siguiente cuadro verás una lista de entradas disponibles, seleccione el numero de plato deseado e ingreselo luego"
-);
+//Funcion lista de platos entradas
 
-//Constantes lista de entradas
+alert(
+  "En el siguiente cuadro verás una lista de entradas disponibles, seleccione el numero de plato deseado e ingreselo"
+);
 
 function menuEntradas() {
   const listaDeEntradas = [
@@ -49,9 +50,15 @@ function menuEntradas() {
 }
 menuEntradas();
 
+//Funcion selección platos entrada
+
 function selccionEntrada() {
-  let entradas = prompt("Ingrese aquí el numero de entrada seleccionada");
-  if (entradas == 1) {
+  let entradas = prompt(
+    "Ingrese aquí el numero de entrada seleccionada, en caso de no querer entrada ingrese 'no'"
+  );
+  if (entradas == "no") {
+    platos();
+  } else if (entradas == 1) {
     alert("Bien, agregaste unos Camarones a tu pedido");
   } else if (entradas == 2) {
     alert("Bien, agregaste un Arroz con palta y sesamo a tu pedido");
@@ -60,41 +67,57 @@ function selccionEntrada() {
   } else if (entradas == 4) {
     alert("Bien, agregaste unas empanadas primavera tu pedido");
   }
+  if (
+    entradas == "1" ||
+    entradas == "2" ||
+    entradas == "3" ||
+    entradas == "4"
+  ) {
+    switch (entradas) {
+      case "1":
+        precio = 1200;
+        break;
+      case "2":
+        precio = 1400;
+        break;
+      case "3":
+        precio = 2500;
+        break;
+      case "4":
+        precio = 1400;
+        break;
+      default:
+        break;
+    }
+    let cantidad = parseInt(
+      prompt("Indicanos el numero de entradas que quieres agregar al pedido")
+    );
+    let agregar = prompt(
+      "¿Queres agregar otra entrada al pedido?, responde con si o no"
+    );
+    while (agregar == "si") {
+      menuEntradas();
+      selccionEntrada();
+      agregar = prompt(
+        "¿Queres agregar otra entrada al pedido?, responde con si o no"
+      );
+    }
+    while (agregar == "no") {
+      break;
+    }
+    carrito.push({ entradas, precio, cantidad });
+    console.log(carrito);
+  }
 }
 selccionEntrada();
 
-function cantidades() {
-  let cantidad = prompt(
-    "Indicanos el numero de entradas que quieres agregar al pedido"
-  );
-  if (cantidad == 1) {
-    alert("Perfecto, una sola entrada");
-  } else {
-    alert("Excelente, serán " + cantidad + " entradas seleccionadas");
-  }
-}
-cantidades();
+//Pedido de Platos principales
 
-function agregarMas() {
-  let agregar = prompt(
-    "¿Queres agregar otra entrada al pedido?, responde con si o no"
+function platos() {
+  alert(
+    "En el siguiente cuadro verás una lista de platos disponibles, responde con el numero de plato seleccionado"
   );
-  while (agregar == "si") {
-    menuEntradas();
-    selccionEntrada();
-    cantidades();
-    agregar = prompt(
-      "¿Queres agregar otra entrada al pedido?, responde con si o no")
-  }
-  if (agregar != "si");
-  {
-  }
 }
-agregarMas();
-
-alert(
-  "En el siguiente cuadro verás una lista de platos disponibles, responde con el numero de plato seleccionado"
-);
 
 function menuPlatos() {
   const listaDePlatos = [
@@ -108,65 +131,79 @@ function menuPlatos() {
   );
   alert(todosLosPlatos.join(" - "));
 }
-menuPlatos()
-
+menuPlatos();
 
 function selccionEntrada2() {
-  let productos = prompt("Ingrese aquí su número de plato seleccionado");
-if (productos == 1) {
-  alert("Bien, agregaste un chao-fan a tu pedido");
-} else if (productos == 2) {
-  alert("Bien, agregaste un chao-mien a tu pedido");
-} else if (productos == 3) {
-  alert("Bien, agregaste un sushi a tu pedido");
-} else if (productos == 4) {
-  alert("Bien, agregaste una sopa de arroz a tu pedido");
-}
-}
-
-
-function cantidades2() {
-  let cantidad = prompt(
-    "Indicanos el numero de platos que quieres agregar al pedido"
+  let productos = prompt(
+    "Ingrese aquí el número de plato seleccionado, en caso de no querer ingres 'no'"
   );
-  if (cantidad == 1) {
-    alert("Perfecto, un solo plato");
-  } else
-  {
-    alert("Excelente, serán " + cantidad + " plato");
+  if (productos == "no") {
+    email();
+  } else if (productos == 1) {
+    alert("Bien, agregaste un chao-fan a tu pedido");
+  } else if (productos == 2) {
+    alert("Bien, agregaste un chao-mien a tu pedido");
+  } else if (productos == 3) {
+    alert("Bien, agregaste un sushi a tu pedido");
+  } else if (productos == 4) {
+    alert("Bien, agregaste una sopa de arroz a tu pedido");
   }
-}
-cantidades2();
-
-function agregarMas2() {
-  agregar = prompt(
-    "¿Queres agregar otro plato al pedido?, responde con si o no"
-  );
-  while (agregar == "si") {
-    menuPlatos();
-    selccionEntrada2();
-    cantidades2();
+  if (
+    productos == "1" ||
+    productos == "2" ||
+    productos == "3" ||
+    productos == "4"
+  ) {
+    switch (productos) {
+      case "1":
+        precio = 2200;
+        break;
+      case "2":
+        precio = 2200;
+        break;
+      case "3":
+        precio = 3000;
+        break;
+      case "4":
+        precio = 1800;
+        break;
+      default:
+        break;
+    }
+    let cantidad = parseInt(
+      prompt("Indicanos la cantidad del platos seleccionado")
+    );
     agregar = prompt(
-      "¿Queres agregar otr plato al pedido?, responde con si o no")
-  }
-  if (agregar != "si");
-  {
+      "¿Queres agregar otro plato al pedido?, responde con si o no"
+    );
+    while (agregar == "si") {
+      menuPlatos();
+      selccionEntrada2();
+      agregar = prompt(
+        "¿Queres agregar otra entrada al pedido?, responde con si o no"
+      );
+    }
+    while (agregar == "no") {
+      break;
+    }
+    carrito.push({ productos, precio, cantidad });
+    console.log(carrito);
   }
 }
-agregarMas2();
+selccionEntrada2();
 
-let correo = prompt("Dejanos tu email a continuación");
+const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
 
 function email() {
+  let correo = prompt("Dejanos tu email a continuación");
   while (correo == "") {
     alert("Debes ingresar un email para contactarte");
     correo = prompt("Dejanos tu email a continuación");
   }
+  alert(
+    "Gracias! " +
+      correo +
+      " En unos minutos te contactaremos para enviarte el pedido"
+  );
 }
 email();
-
-alert(
-  "Gracias! " +
-    correo +
-    " En unos minutos te contactaremos para enviarte el pedido"
-);
