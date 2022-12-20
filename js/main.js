@@ -111,7 +111,11 @@ function selccionEntrada() {
 }
 selccionEntrada();
 
-//Pedido de Platos principales
+carrito.forEach((carritoFinal)=>{
+  console.log(`entradas: ${carritoFinal.entradas}, cantidad: ${carritoFinal.cantidad}, totalPagar: ${carritoFinal.cantidad * carritoFinal.precio}`);
+})
+
+//PEDIDO DE PLATOS PRINCIPALES
 
 function platos() {
   alert(
@@ -190,9 +194,19 @@ function selccionEntrada2() {
     console.log(carrito);
   }
 }
+
 selccionEntrada2();
 
-const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
+carrito.forEach((carritoFinal)=>{
+  console.log(`productos: ${carritoFinal.productos}, cantidad: ${carritoFinal.cantidad}, totalPagar: ${carritoFinal.cantidad * carritoFinal.precio}`);
+})
+
+//TOTAL FINAL A PAGAR
+
+const totalFinal = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
+console.log(`el total a pagar es: ${totalFinal}`);
+
+//PEDIDO DE EMAIL
 
 function email() {
   let correo = prompt("Dejanos tu email a continuación");
@@ -207,3 +221,5 @@ function email() {
   );
 }
 email();
+
+
