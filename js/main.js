@@ -111,17 +111,19 @@ function selccionEntrada() {
 }
 selccionEntrada();
 
-carrito.forEach((carritoFinal)=>{
-  console.log(`entradas: ${carritoFinal.entradas}, cantidad: ${carritoFinal.cantidad}, totalPagar: ${carritoFinal.cantidad * carritoFinal.precio}`);
-})
+carrito.forEach((carritoFinal) => {
+  console.log(
+    `entradas: ${carritoFinal.entradas}, cantidad: ${
+      carritoFinal.cantidad
+    }, totalPagar: ${carritoFinal.cantidad * carritoFinal.precio}`
+  );
+});
 
 //PEDIDO DE PLATOS PRINCIPALES
 
-function platos() {
-  alert(
-    "En el siguiente cuadro verás una lista de platos disponibles, responde con el numero de plato seleccionado"
-  );
-}
+alert(
+  "En el siguiente cuadro verás una lista de platos disponibles, responde con el numero de plato seleccionado"
+);
 
 function menuPlatos() {
   const listaDePlatos = [
@@ -197,13 +199,20 @@ function selccionEntrada2() {
 
 selccionEntrada2();
 
-carrito.forEach((carritoFinal)=>{
-  console.log(`productos: ${carritoFinal.productos}, cantidad: ${carritoFinal.cantidad}, totalPagar: ${carritoFinal.cantidad * carritoFinal.precio}`);
-})
+carrito.forEach((carritoFinal) => {
+  console.log(
+    `productos: ${carritoFinal.productos}, cantidad: ${
+      carritoFinal.cantidad
+    }, totalPagar: ${carritoFinal.cantidad * carritoFinal.precio}`
+  );
+});
 
 //TOTAL FINAL A PAGAR
 
-const totalFinal = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
+const totalFinal = carrito.reduce(
+  (acc, el) => acc + el.precio * el.cantidad,
+  0
+);
 console.log(`el total a pagar es: ${totalFinal}`);
 
 //PEDIDO DE EMAIL
@@ -221,5 +230,3 @@ function email() {
   );
 }
 email();
-
-
